@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Estoque</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="topo">
+        <div class="container">
+            <p class="subtitulo">SISTEMA DE CONTROLE</p>
+            <h1>Gestão de Estoque</h1>
+            <p>Controle seus produtos de forma simples e organizada.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="resumo">
+            <article class="card">
+                <span>Total de produtos</span>
+                <strong id="totalProdutos">0</strong>
+            </article>
+
+            <article class="card">
+                <span>Unidades em estoque</span>
+                <strong id="totalUnidades">0</strong>
+            </article>
+
+            <article class="card">
+                <span>Valor do estoque</span>
+                <strong id="valorEstoque">R$ 0,00</strong>
+            </article>
+
+            <article class="card alerta">
+                <span>Estoque crítico</span>
+                <strong id="estoqueCritico">0</strong>
+            </article>
+        </section>
+
+        <section class="painel">
+            <h2>Cadastrar produto</h2>
+
+            <form id="formProduto">
+                <div class="campo">
+                    <label for="nome">Nome do produto</label>
+                    <input
+                        type="text"
+                        id="nome"
+                        placeholder="Ex.: Teclado Mecânico"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="preco">Preço (R$)</label>
+                    <input
+                        type="number"
+                        id="preco"
+                        min="0.01"
+                        step="0.01"
+                        placeholder="250.00"
+                        required
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="estoque">Quantidade</label>
+                    <input
+                        type="number"
+                        id="estoque"
+                        min="0"
+                        step="1"
+                        placeholder="15"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="botao">
+                    Adicionar produto
+                </button>
+            </form>
+        </section>
+
+        <section class="painel">
+            <div class="cabecalho-lista">
+                <div>
+                    <h2>Produtos cadastrados</h2>
+                    <p class="descricao">Consulte e organize seu inventário.</p>
+                </div>
+
+                <button type="button" id="btnConsole" class="botao secundario">
+                    Ver resumo
+                </button>
+            </div>
+
+            <div class="filtros">
+                <div class="campo">
+                    <label for="busca">Pesquisar produto</label>
+                    <input
+                        type="search"
+                        id="busca"
+                        placeholder="Digite o nome..."
+                    >
+                </div>
+
+                <div class="campo">
+                    <label for="ordenacao">Ordenar por</label>
+                    <select id="ordenacao">
+                        <option value="nome">Nome (A–Z)</option>
+                        <option value="menor">Menor preço</option>
+                        <option value="maior">Maior preço</option>
+                        <option value="estoque">Quantidade em estoque</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tabela-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Preço</th>
+                            <th>Quantidade</th>
+                            <th>Valor total</th>
+                            <th>Status</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="listaProdutos"></tbody>
+                </table>
+            </div>
+
+            <p id="mensagemVazia" class="vazio" hidden>
+                Nenhum produto encontrado.
+            </p>
+
+            <p class="nota">
+                Estoque crítico: menos de 5 unidades.
+            </p>
+        </section>
+
+        <section class="painel">
+            <h2>Resultado das operações</h2>
+            <p class="descricao">
+                Os métodos de arrays são utilizados no JavaScript.
+                Clique no botão abaixo para ver os resultados no console.
+            </p>
+            <button type="button" id="btnOperacoes" class="botao">
+                Executar operações JavaScript
+            </button>
+            <p id="mensagemOperacoes" class="mensagem" aria-live="polite"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Projeto acadêmico — Desenvolvimento Web / JavaScript</p>
+    </footer>
+</body>
+</html>
